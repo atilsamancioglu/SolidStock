@@ -7,7 +7,7 @@ import retrofit2.http.Query
 interface StockAPI {
 
     @GET("query?function=LISTING_STATUS")
-    suspend fun getListings(@Query("apikey") apiKey: String) : ResponseBody
+    suspend fun getListings(@Query("apikey") apiKey: String = API_KEY) : ResponseBody
 
     companion object {
         const val API_KEY = "DCKKXXRUW47F65MS"
