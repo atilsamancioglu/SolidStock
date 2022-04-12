@@ -60,7 +60,7 @@ class StockRepositoryImpl @Inject constructor(
                     listings.map { it.toCompanyListingEntity() }
                 )
                 //emit(Resource.Success(listings)) ->
-                // commented out bc of single source of data. data coming from api->room->ui
+                // commented out bc of single source of data principle. data coming from api->room->ui
                 emit(Resource.Success(data=dao.searchCompanyListing("").map { it.toCompanyListing() }))
                 emit(Resource.Loading(false))
             }
