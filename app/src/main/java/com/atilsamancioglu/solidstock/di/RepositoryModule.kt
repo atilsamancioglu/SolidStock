@@ -2,8 +2,10 @@ package com.atilsamancioglu.solidstock.di
 
 import com.atilsamancioglu.solidstock.data.csv.CompanyListingParser
 import com.atilsamancioglu.solidstock.data.csv.CsvParser
+import com.atilsamancioglu.solidstock.data.csv.IntradayParser
 import com.atilsamancioglu.solidstock.data.repository.StockRepositoryImpl
 import com.atilsamancioglu.solidstock.domain.model.CompanyListing
+import com.atilsamancioglu.solidstock.domain.model.IntradayInfo
 import com.atilsamancioglu.solidstock.domain.repository.StockRepository
 import com.opencsv.CSVParser
 import dagger.Binds
@@ -27,6 +29,14 @@ abstract class RepositoryModule {
     abstract fun bindCompanyListingsParser(
         companyListingParser : CompanyListingParser
     ) : CsvParser<CompanyListing>
+
+
+    @Binds
+    @Singleton
+    abstract fun intradayParser(
+        intradayParser: IntradayParser
+    ) : CsvParser<IntradayInfo>
+
 
     @Binds
     @Singleton
