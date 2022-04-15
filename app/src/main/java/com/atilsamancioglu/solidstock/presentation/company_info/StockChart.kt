@@ -59,7 +59,7 @@ fun StockChart(
             drawContext.canvas.nativeCanvas.apply {
                 drawText(
                     hour.toString(),
-                    spacing + 1 * spacePerHour,
+                    spacing + i * spacePerHour,
                     size.height - 5,
                     textPaint
                 )
@@ -68,7 +68,7 @@ fun StockChart(
 
         // y axis values. we need to show 5 values, so:
         val priceStep = (upperValue - lowerValue) / 5f
-        (1..5).forEach{ i ->
+        (0..4).forEach{ i ->
             drawContext.canvas.nativeCanvas.apply {
                 drawText(
                     round(lowerValue + priceStep * i).toString(),
@@ -100,7 +100,7 @@ fun StockChart(
                 if (i == 0) {
                     moveTo(x1,y1)
                 }
-                lastX = (x1+x2)/2
+                lastX = (x1+x2)/2f
                 quadraticBezierTo(
                     x1 = x1,
                     y1 = y1,
